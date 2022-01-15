@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://bikram294.github.io/Expense_Tracker",
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.5.0",
@@ -13,7 +14,7 @@
     "react-scripts": "^4.0.3",
     "web-vitals": "^0.2.4"
   },
-  "scripts": { 
+  "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts --openssl-legacy-provider start",

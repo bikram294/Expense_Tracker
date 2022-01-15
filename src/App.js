@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-
+import { ThemeProvider, CssBaseline, createMuiTheme, Switch } from '@material-ui/core';
 import NewExpense from './components/NewExpense/NewExpense';
 import Expenses from './components/Expenses/Expenses';
-
+import "./App.css";
 const DUMMY_EXPENSES = [
   {
     id: 'e1',
@@ -40,12 +40,40 @@ const App = () => {
   //   React.createElement('h2', {}, "Let's get started!"),
   //   React.createElement(Expenses, { items: expenses })
   // );
+  const [darkMode, setDarkMode] = useState(false);
+
+  const theme = createMuiTheme({
+    palette: {
+      type: darkMode ? 'dark' : 'light',
+    }
+  })
+
+  const handleDarkMode = () => {
+    setDarkMode(!darkMode);
+  }
 
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
+      <ThemeProvider theme={theme}>
+      <CssBaseline>
+        <div className="App">
+        <header className="App-header"> 
+          <Switch onChange={handleDarkMode} value={darkMode}/>
+          <h3>
+            Expense Tracker
+          </h3>
+          <h5>Created by Bikramdeep Singh</h5>
+        </header>
+        </div>
+      </CssBaseline>
+    </ThemeProvider>
+  
+    
+    
     </div>
+  
   );
 };
 
